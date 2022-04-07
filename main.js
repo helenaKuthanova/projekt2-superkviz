@@ -35,52 +35,43 @@ function nacteniOtazky(index) {
     odpoved2.textContent = poleOtazek[index].odpovedi[2];
 }
 
-function konec() {
+
+function zvoleno(idecko) {
+    return idecko
 }
+// jak zvenčí přistoupit k té zvolené možnosti?
+
+
+// zkoušela jsem pokračovat v těle té funkce, takto se mi zvýší skóre i načte další otázka
+function zvoleno(idecko) {
+    if (idecko == poleOtazek[0].spravnaOdpoved) {
+    skore++;
+    }
+    nacteniOtazky(1)
+}
+
+// ale když to chci dát do forcyklu, vrací se mi chyba:
+// Cannot read properties of undefined (reading 'otazka') at nacteniOtazky
+
+function zvoleno(idecko) {
+    for (i = 0; i <= poleOtazek.length; i++) {
+        if (idecko == poleOtazek[i].spravnaOdpoved) {
+        skore++;
+        }
+        nacteniOtazky(i+1)
+    }
+}
+
+// let tvojeOdpoved = ??? document.getElementById("idecko")
+
 
 // let poleOdpovedi = document.createElement("div.vysledek");
 // let nadpis = poleOdpovedi.createElement("h2.nadpis");
 // nadpis.textContent = "Výsledek";
 
-function zvoleno(idecko) {
-    // jaká možnost byla zvolena
 
-    // porovnám zvolenou možnost a správnou odpověď
-    if (idecko == poleOtazek[0].spravnaOdpoved) {
-            skore++;
-            nacteniOtazky(1);
-        }
-        if (idecko == poleOtazek[1].spravnaOdpoved) {
-            skore++;
-            nacteniOtazky(2);
-        }
 
-            if (idecko == poleOtazek[2].spravnaOdpoved) {
-                skore++;
-                console.log("konec");
-            }
-    }
-        // do divu .vysledek přidej otázku + Tvoje odpověď + To je správná odpověď
-  
+        // do divu .vysledek přidám pomocí appendChild otázku + Tvoje odpověď + To je správná odpověď
 
     //else
-        // do divu. vysledek přidej otázku + odpověď + Správna odpověď: ...
-
-
-    // if šlo o 1. nebo 2. otázku
-    // if (poleOtazek.indexOf(otazka) == 0) {
-    //     console.log("id otazky: " + idecko + " skore: " + skore + "č. " + otazka);
-    //     // funkce, která vymění otázku
-    //     vymenOtazku();
-    // }
-
-    // else
-
-        // funkce pro výpočet úspěšnosti
-
-        // funkce pro zobrazení výsledné obrazovky
-
-
-
-
-
+        // do divu. vysledek přidám otázku + Tvoje odpověď + Správna odpověď: ...
